@@ -15,4 +15,14 @@ public class HeroProgressData
         this.experience = experience;
         this.level = level;
     }
+
+    public void IncreaseExperience(int amount, int xpToLevelUp)
+    {
+        experience += amount;
+        if (experience >= xpToLevelUp)
+        {
+            level++;
+            experience -= xpToLevelUp;
+        }
+    }
 }

@@ -68,12 +68,7 @@ public class PlayerProgressLocal : PlayerProgress
 
         if (hero != null)
         {
-            //hero.Experience += amount;
-            //if (hero.Experience >= xpToLevelUp)
-            //{
-            //    hero.Level++;
-            //    hero.Experience -= xpToLevelUp;
-            //}
+            hero.IncreaseExperience(amount, xpToLevelUp);
         }
         else
         {

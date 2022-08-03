@@ -1,0 +1,20 @@
+{
+  "monsterCollection": [
+    {
+      "id": 0,
+      "name": "Scorpio",
+      "baseHealth": 500,
+      "baseAttackPower": 25,
+      "thumbnailAddress": "Assets/Sprites/loading.png",
+      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+    },
+    {
+      "id": 1,
+      "name": "Nefario",
+      "baseHealth": 750,
+      "baseAttackPower": 30,
+      "thumbnailAddress": "Assets/Sprites/loading.png",
+      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+    }
+  ]
+}
