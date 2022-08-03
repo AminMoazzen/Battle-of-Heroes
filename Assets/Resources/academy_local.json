@@ -1,0 +1,23 @@
+{
+  "hpMultiplier": 0.1,
+  "apMulitplier": 0.1,
+  "xpToLevelUp": 5,
+  "heroCollection": [
+    {
+      "id": 0,
+      "name": "Jake",
+      "baseHealth": 200,
+      "baseAttackPower": 10,
+      "thumbnailAddress": "Assets/Sprites/loading.png",
+      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+    },
+    {
+      "id": 1,
+      "name": "Yoshimiro",
+      "baseHealth": 100,
+      "baseAttackPower": 50,
+      "thumbnailAddress": "Assets/Sprites/loading.png",
+      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+    }
+  ]
+}

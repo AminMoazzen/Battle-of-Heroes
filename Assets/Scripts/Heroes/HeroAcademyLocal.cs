@@ -1,13 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-public abstract class HeroAcademyLocal : HeroAcademy
+[CreateAssetMenu(fileName = "New Local Hero Academy", menuName = "Battle of Heroes / Local Hero Academy")]
+public class HeroAcademyLocal : HeroAcademy
 {
-    [SerializeField] private string jsonAddress;
+    [SerializeField] private string jsonFileAddress;
 
     public override IEnumerator Fetch()
     {
-        var request = Resources.LoadAsync<TextAsset>(jsonAddress);
+        var request = Resources.LoadAsync<TextAsset>(jsonFileAddress);
 
         yield return request;
 

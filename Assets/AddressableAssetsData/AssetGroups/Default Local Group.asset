@@ -16,7 +16,15 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 4502de1e7b9a1a447bdd43d5fca3242c
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 99468764cd112924d8a358401fa15bd2
+    m_Address: Assets/Heroes/Base/Hero.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: fd6d2eba0b182db45a0e83d93448783e
+    m_Address: Assets/Sprites/loading.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e14744d500202ad4b8695741968a8926, type: 2}
   m_SchemaSet:

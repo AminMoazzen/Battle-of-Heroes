@@ -4,23 +4,29 @@ using System.Collections.Generic;
 [System.Serializable]
 public class HeroAcademyData
 {
-    public int hpMultiplier;
+    private float hpMultiplier;
+    private float apMulitplier;
+    private int xpToLevelUp;
+    private List<HeroStaticData> heroCollection;
 
-    public int apMulitplier;
-    public List<HeroData> heroList;
+    public float HpMultiplier => hpMultiplier;
+    public float ApMulitplier => apMulitplier;
+    public int XpToLevelUp => xpToLevelUp;
+    public List<HeroStaticData> HeroCollection => heroCollection;
 
     [JsonConstructor]
     public HeroAcademyData()
     {
-        heroList = new List<HeroData>();
+        heroCollection = new List<HeroStaticData>();
     }
 
     public HeroAcademyData(string json)
     {
         var data = JsonConvert.DeserializeObject<HeroAcademyData>(json);
-        hpMultiplier = data.hpMultiplier;
-        apMulitplier = data.apMulitplier;
-        heroList = data.heroList;
+        hpMultiplier = data.HpMultiplier;
+        apMulitplier = data.ApMulitplier;
+        xpToLevelUp = data.xpToLevelUp;
+        heroCollection = data.HeroCollection;
     }
 
     public string ToJson()
