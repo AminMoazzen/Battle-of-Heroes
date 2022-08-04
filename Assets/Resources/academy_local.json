@@ -18,6 +18,14 @@
       "baseAttackPower": 50,
       "thumbnailAddress": "Assets/Sprites/loading.png",
       "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+    },
+    {
+      "id": 2,
+      "name": "Altan",
+      "baseHealth": 150,
+      "baseAttackPower": 25,
+      "thumbnailAddress": "Assets/Sprites/loading.png",
+      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
     }
   ]
 }

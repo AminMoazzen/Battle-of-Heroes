@@ -6,6 +6,7 @@ public class HeroSpawner : MonoBehaviour
 {
     [SerializeField] private HeroAcademy academy;
     [SerializeField] private PlayerProgress playerProgress;
+    [SerializeField] private CompetitorsReference competitorsReference;
 
     private HeroStaticData _staticData;
     private HeroProgressData _progressData;
@@ -14,7 +15,7 @@ public class HeroSpawner : MonoBehaviour
     {
         _staticData = academy.Data.HeroCollection.Find(x => x.Id == id);
         _progressData = playerProgress.Data.HeroList.Find(x => x.Id == id);
-        Addressables.InstantiateAsync(_staticData.PrefabAddress).Completed += OnSpawned;
+        Addressables.InstantiateAsync(_staticData.PrefabAddress, transform).Completed += OnSpawned;
     }
 
     private void OnSpawned(AsyncOperationHandle<GameObject> obj)
@@ -22,9 +23,12 @@ public class HeroSpawner : MonoBehaviour
         switch (obj.Status)
         {
             case AsyncOperationStatus.Succeeded:
-                var hero = obj.Result;
-                hero.GetComponent<Health>().SetHealth(_staticData.GetScaledHealth(_progressData.Level, academy.Data.HpMultiplier));
-                hero.GetComponent<Weapon>().SetDamage(_staticData.GetScaledAttackPower(_progressData.Level, academy.Data.ApMulitplier));
+                var hero = obj.Result.GetComponent<Hero>();
+                hero.Initialize(
+                    _staticData.Id,
+                    _staticData.GetScaledHealth(_progressData.Level, academy.Data.HpMultiplier),
+                    _staticData.GetScaledAttackPower(_progressData.Level, academy.Data.ApMulitplier));
+                competitorsReference.AddHero(hero);
                 break;
 
             case AsyncOperationStatus.Failed:

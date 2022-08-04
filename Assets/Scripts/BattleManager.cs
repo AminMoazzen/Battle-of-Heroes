@@ -1,11 +1,15 @@
 using Nouranium;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class BattleManager : MonoBehaviour
 {
+    [SerializeField] private HeroAcademy academy;
+    [SerializeField] private PlayerProgress playerProgress;
     [SerializeField] private BattleCoordinator coordinator;
+    [SerializeField] private CompetitorsReference competitorsReference;
     [SerializeField] private HeroSpawner heroSpawner;
     [SerializeField] private MonsterSpawner monsterSpawner;
     [SerializeField] private Vector3 heroStartPos;
@@ -33,22 +37,28 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        SummonCompetitors();
+    }
+
     public void SummonCompetitors()
     {
         _transform = transform;
-        _battlingHeroIDs = coordinator.SelectedHeroeIDs;
+        _battlingHeroIDs = coordinator.SelectedHeroIDs;
+        competitorsReference.Initialize();
 
         Vector3 offset = Vector3.zero;
         for (int i = 0; i < _battlingHeroIDs.Count; i++)
         {
             var randomInCircle = Random.insideUnitCircle;
-            offset.Set(randomInCircle.x, 0, -i * 2 + randomInCircle.y);
+            offset.Set(randomInCircle.x, 0, 2 * i + randomInCircle.y);
             var pos = _transform.position + heroStartPos + offset;
-            var heroSpanwer = Instantiate(heroSpawner, pos, heroSpawner.transform.rotation, _transform).GetComponent<HeroSpawner>();
+            var heroSpanwer = Instantiate(heroSpawner, pos, heroSpawner.transform.rotation, null).GetComponent<HeroSpawner>();
             heroSpanwer.Spawn(_battlingHeroIDs[i]);
         }
 
-        var monsterSpanwer = Instantiate(monsterSpawner, monsterPos, monsterSpawner.transform.rotation, _transform).GetComponent<MonsterSpawner>();
+        var monsterSpanwer = Instantiate(monsterSpawner, monsterPos, monsterSpawner.transform.rotation, null).GetComponent<MonsterSpawner>();
         monsterSpanwer.Spawn();
     }
 
@@ -64,6 +74,20 @@ public class BattleManager : MonoBehaviour
 
     public void WinBattle()
     {
+        StartCoroutine(UpdatingProgress());
+    }
+
+    private IEnumerator UpdatingProgress()
+    {
+        for (int i = 0; i < _battlingHeroIDs.Count; i++)
+        {
+            playerProgress.IncreaseExperience(_battlingHeroIDs[i], 1, academy.Data.XpToLevelUp);
+        }
+
+        playerProgress.IncreaseLevelsPlayed();
+
+        yield return playerProgress.Save();
+
         onBattleWon.Invoke();
     }
 }

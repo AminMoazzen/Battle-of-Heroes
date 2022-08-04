@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class HeroCard : MonoBehaviour
 {
+    [SerializeField] private BattleCoordinator coordinator;
     [SerializeField] private Image thumbnail;
     [SerializeField] private TextMeshProUGUI heroName;
     [SerializeField] private TextMeshProUGUI heroLevel;
@@ -16,27 +17,30 @@ public class HeroCard : MonoBehaviour
 
     private bool _isLocked;
     private bool _isSelected;
+    private int _heroID;
     //private HeroBaseData _heroData;
 
     public void Initialize(HeroStaticData staticData, HeroProgressData progressData, float apMultiplier)
     {
         Addressables.LoadAssetAsync<Sprite>(staticData.ThumbnailAddress).Completed += OnThumbnailLoaded;
+        _heroID = staticData.Id;
 
         heroName.text = staticData.Name;
+        int level = 1;
+        int experience = 0;
+        int attackPower = staticData.BaseAttackPower;
 
         _isLocked = progressData == null;
-        if (_isLocked)
+        if (!_isLocked)
         {
-            heroLevel.text = "1";
-            heroExperience.text = "0";
-            heroAttackPower.text = staticData.BaseAttackPower.ToString();
+            level = progressData.Level;
+            experience = progressData.Experience;
+            attackPower = staticData.GetScaledAttackPower(progressData.Level, apMultiplier);
         }
-        else
-        {
-            heroLevel.text = progressData.Level.ToString();
-            heroExperience.text = progressData.Experience.ToString();
-            heroAttackPower.text = staticData.GetScaledAttackPower(progressData.Level, apMultiplier).ToString();
-        }
+
+        heroLevel.text = level.ToString();
+        heroExperience.text = experience.ToString();
+        heroAttackPower.text = attackPower.ToString();
     }
 
     private void OnThumbnailLoaded(AsyncOperationHandle<Sprite> obj)
@@ -58,15 +62,18 @@ public class HeroCard : MonoBehaviour
 
     public void OnClick()
     {
-        if (_isSelected)
-            Deselect();
-        else
-            Select();
+        if (!_isLocked)
+        {
+            if (_isSelected)
+                Deselect();
+            else
+                Select();
+        }
     }
 
     public void Select()
     {
-        if (!_isLocked)
+        if (coordinator.CanSelectHero(_heroID))
         {
             _isSelected = true;
             selectedFrame.SetActive(true);
@@ -75,6 +82,7 @@ public class HeroCard : MonoBehaviour
 
     public void Deselect()
     {
+        coordinator.DeselectHero(_heroID);
         _isSelected = false;
         selectedFrame.SetActive(false);
     }

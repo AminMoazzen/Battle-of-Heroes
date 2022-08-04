@@ -1528,6 +1528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86bd0efacbcafd345acbcf4b71017a9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coordinator: {fileID: 11400000, guid: 76713ee98dd64f1468664157a311a215, type: 2}
   thumbnail: {fileID: 2068227918}
   heroName: {fileID: 1049884432}
   heroLevel: {fileID: 440396921}

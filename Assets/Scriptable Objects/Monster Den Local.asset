@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d6d0119fe3c3744093c4b54c7e29678, type: 3}
   m_Name: Monster Den Local
   m_EditorClassIdentifier: 
-  jsonFileAddress: den_local.json
+  jsonFileAddress: den_local

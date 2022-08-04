@@ -17,8 +17,7 @@ public class PointerHoldEventTrigger : MonoBehaviour, IPointerDownHandler, IPoin
     [SerializeField] private UnityEvent<PointerEventData> onHoldBegin;
     [SerializeField] private UnityEvent<PointerEventData> onHoldEnd;
 
-    private float _currentTime;
-    private Coroutine _countingDown;
+    private Coroutine _holding;
     private Status _status;
 
     public void OnPointerDown(PointerEventData eventData)
@@ -29,10 +28,10 @@ public class PointerHoldEventTrigger : MonoBehaviour, IPointerDownHandler, IPoin
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        StopCountdown();
         switch (_status)
         {
             case Status.Click:
-                StopCountdown();
                 onClick.Invoke(eventData);
                 break;
 
@@ -55,24 +54,19 @@ public class PointerHoldEventTrigger : MonoBehaviour, IPointerDownHandler, IPoin
     private void StartCountdown(PointerEventData eventData)
     {
         StopCountdown();
-        _countingDown = StartCoroutine(CountingDown(eventData));
+        _holding = StartCoroutine(Holding(eventData));
     }
 
     private void StopCountdown()
     {
-        if (_countingDown != null)
-            StopCoroutine(_countingDown);
+        if (_holding != null)
+            StopCoroutine(_holding);
     }
 
-    private IEnumerator CountingDown(PointerEventData eventData)
+    private IEnumerator Holding(PointerEventData eventData)
     {
-        while (_currentTime < holdThreshold)
-        {
-            yield return null;
-            _currentTime += Time.deltaTime;
-        }
+        yield return new WaitForSecondsRealtime(holdThreshold);
 
-        _currentTime = 0;
         _status = Status.Hold;
         onHoldBegin.Invoke(eventData);
     }

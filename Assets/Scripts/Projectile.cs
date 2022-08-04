@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField][Min(0.001f)] private float speed;
 
-    // Update is called once per frame
-    void Update()
+    private Transform _transform;
+
+    public void Throw(int damage, Health targetHealth)
     {
-        
+        _transform = transform;
+        var targetTransform = targetHealth.transform;
+
+        var toTarget = targetTransform.position - _transform.position;
+        _transform.forward = toTarget;
+        _transform.DOMove(targetTransform.position, 1 / speed).onComplete += () =>
+        {
+            targetHealth.TakeDamage(damage);
+            Destroy(gameObject);
+        };
     }
 }

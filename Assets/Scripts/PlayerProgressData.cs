@@ -27,4 +27,9 @@ public class PlayerProgressData
     {
         return JsonConvert.SerializeObject(this, Formatting.Indented);
     }
+
+    public void IncreaseLevelsFinished()
+    {
+        levelsFinished++;
+    }
 }

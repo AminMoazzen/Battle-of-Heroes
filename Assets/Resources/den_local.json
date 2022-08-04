@@ -3,18 +3,26 @@
     {
       "id": 0,
       "name": "Scorpio",
-      "baseHealth": 500,
-      "baseAttackPower": 25,
+      "health": 500,
+      "attackPower": 25,
       "thumbnailAddress": "Assets/Sprites/loading.png",
-      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+      "prefabAddress": "Assets/Monsters/Base/Monster.prefab"
     },
     {
       "id": 1,
       "name": "Nefario",
-      "baseHealth": 750,
-      "baseAttackPower": 30,
+      "health": 750,
+      "attackPower": 30,
       "thumbnailAddress": "Assets/Sprites/loading.png",
-      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+      "prefabAddress": "Assets/Monsters/Base/Monster.prefab"
+    },
+    {
+      "id": 2,
+      "name": "Canavar",
+      "health": 600,
+      "attackPower": 40,
+      "thumbnailAddress": "Assets/Sprites/loading.png",
+      "prefabAddress": "Assets/Monsters/Base/Monster.prefab"
     }
   ]
 }

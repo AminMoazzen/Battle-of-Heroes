@@ -13,6 +13,12 @@ public class PlayerProgressLocal : PlayerProgress
         data.HeroList.Add(hero);
     }
 
+    public override void UnlockNextHero()
+    {
+        var nextHeroID = data.HeroList[data.HeroList.Count - 1].Id + 1;
+        AddHero(new HeroProgressData(nextHeroID, experience: 0, level: 1));
+    }
+
     public override IEnumerator Fetch()
     {
         var inventoryJsonFile = GetSavePath();
@@ -73,6 +79,16 @@ public class PlayerProgressLocal : PlayerProgress
         else
         {
             Debug.LogError($"Player does not own a hero with id number of '{id}'");
+        }
+    }
+
+    public override void IncreaseLevelsPlayed()
+    {
+        data.IncreaseLevelsFinished();
+
+        if (data.LevelsFinished % 5 == 0)
+        {
+            UnlockNextHero();
         }
     }
 }

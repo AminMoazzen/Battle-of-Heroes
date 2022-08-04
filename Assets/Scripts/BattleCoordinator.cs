@@ -12,24 +12,26 @@ public class BattleCoordinator : ScriptableObject
     [SerializeField] private UnityEvent<int> onHeroDeselected;
     [SerializeField] private UnityEvent onEnoughHeroSelected;
 
-    private List<int> _selectedHeroeIDs;
+    private List<int> _selectedHeroIDs;
 
-    public List<int> SelectedHeroeIDs;
+    public List<int> SelectedHeroIDs => _selectedHeroIDs;
+
+    public void Initialize()
+    {
+        _selectedHeroIDs = new List<int>(numHeroes);
+    }
 
     public bool CanSelectHero(int heroID)
     {
-        if (_selectedHeroeIDs == null)
-            _selectedHeroeIDs = new List<int>(numHeroes);
-
-        if (_selectedHeroeIDs.Count == numHeroes)
+        if (_selectedHeroIDs.Count == numHeroes)
         {
             return false;
         }
 
-        _selectedHeroeIDs.Add(heroID);
+        _selectedHeroIDs.Add(heroID);
         onHeroSelected.Invoke(heroID);
 
-        if (_selectedHeroeIDs.Count == numHeroes)
+        if (_selectedHeroIDs.Count == numHeroes)
         {
             onEnoughHeroSelected.Invoke();
         }
@@ -37,13 +39,9 @@ public class BattleCoordinator : ScriptableObject
         return true;
     }
 
-    public void UnselectHero(int heroID)
+    public void DeselectHero(int heroID)
     {
-        var foundID = _selectedHeroeIDs.Find((id) => id == heroID);
-        if (foundID != -1)
-        {
-            _selectedHeroeIDs.Remove(foundID);
-            onHeroDeselected.Invoke(foundID);
-        }
+        _selectedHeroIDs.Remove(heroID);
+        onHeroDeselected.Invoke(heroID);
     }
 }

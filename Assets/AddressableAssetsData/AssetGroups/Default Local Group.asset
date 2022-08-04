@@ -25,6 +25,10 @@ MonoBehaviour:
     m_Address: Assets/Sprites/loading.png
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 0842bad5a3c4f6143a7a8604d8426c60
+    m_Address: Assets/Monsters/Base/Monster.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e14744d500202ad4b8695741968a8926, type: 2}
   m_SchemaSet:
