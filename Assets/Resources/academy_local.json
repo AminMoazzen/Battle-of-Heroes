@@ -26,6 +26,62 @@
       "baseAttackPower": 25,
       "thumbnailAddress": "Assets/Sprites/loading.png",
       "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+    },
+    {
+      "id": 3,
+      "name": "Scarlett",
+      "baseHealth": 70,
+      "baseAttackPower": 70,
+      "thumbnailAddress": "Assets/Sprites/loading.png",
+      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+    },
+	{
+      "id": 4,
+      "name": "Gambler",
+      "baseHealth": 150,
+      "baseAttackPower": 15,
+      "thumbnailAddress": "Assets/Sprites/loading.png",
+      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+    },
+	{
+      "id": 5,
+      "name": "Punisher",
+      "baseHealth": 100,
+      "baseAttackPower": 25,
+      "thumbnailAddress": "Assets/Sprites/loading.png",
+      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+    },
+	{
+      "id": 6,
+      "name": "Plague",
+      "baseHealth": 110,
+      "baseAttackPower": 20,
+      "thumbnailAddress": "Assets/Sprites/loading.png",
+      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+    },
+	{
+      "id": 7,
+      "name": "Anna",
+      "baseHealth": 100,
+      "baseAttackPower": 30,
+      "thumbnailAddress": "Assets/Sprites/loading.png",
+      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+    },
+	{
+      "id": 8,
+      "name": "Graphite",
+      "baseHealth": 140,
+      "baseAttackPower": 20,
+      "thumbnailAddress": "Assets/Sprites/loading.png",
+      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+    },
+	{
+      "id": 9,
+      "name": "Johanna",
+      "baseHealth": 200,
+      "baseAttackPower": 50,
+      "thumbnailAddress": "Assets/Sprites/loading.png",
+      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
     }
   ]
 }

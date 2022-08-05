@@ -82,13 +82,16 @@ public class PlayerProgressLocal : PlayerProgress
         }
     }
 
-    public override void IncreaseLevelsPlayed()
+    public override void IncreaseLevelsPlayed(int maxHeroCount)
     {
         data.IncreaseLevelsFinished();
 
         if (data.LevelsFinished % 5 == 0)
         {
-            UnlockNextHero();
+            if (data.HeroList.Count < maxHeroCount)
+            {
+                UnlockNextHero();
+            }
         }
     }
 }

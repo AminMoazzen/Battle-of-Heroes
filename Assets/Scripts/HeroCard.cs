@@ -8,6 +8,7 @@ public class HeroCard : MonoBehaviour
 {
     [SerializeField] private BattleCoordinator coordinator;
     [SerializeField] private Image thumbnail;
+    [SerializeField] private GameObject locked;
     [SerializeField] private TextMeshProUGUI heroName;
     [SerializeField] private TextMeshProUGUI heroLevel;
     [SerializeField] private TextMeshProUGUI heroAttackPower;
@@ -18,11 +19,9 @@ public class HeroCard : MonoBehaviour
     private bool _isLocked;
     private bool _isSelected;
     private int _heroID;
-    //private HeroBaseData _heroData;
 
     public void Initialize(HeroStaticData staticData, HeroProgressData progressData, float apMultiplier)
     {
-        Addressables.LoadAssetAsync<Sprite>(staticData.ThumbnailAddress).Completed += OnThumbnailLoaded;
         _heroID = staticData.Id;
 
         heroName.text = staticData.Name;
@@ -31,11 +30,13 @@ public class HeroCard : MonoBehaviour
         int attackPower = staticData.BaseAttackPower;
 
         _isLocked = progressData == null;
+        locked.SetActive(_isLocked);
         if (!_isLocked)
         {
             level = progressData.Level;
             experience = progressData.Experience;
             attackPower = staticData.GetScaledAttackPower(progressData.Level, apMultiplier);
+            Addressables.LoadAssetAsync<Sprite>(staticData.ThumbnailAddress).Completed += OnThumbnailLoaded;
         }
 
         heroLevel.text = level.ToString();
@@ -52,7 +53,7 @@ public class HeroCard : MonoBehaviour
                 break;
 
             case AsyncOperationStatus.Failed:
-                //Debug.LogWarning($"Could not load the thumbnail for {_heroData.name}");
+                Debug.LogWarning($"Could not load the thumbnail for hero with ID of {_heroID}");
                 break;
 
             default:

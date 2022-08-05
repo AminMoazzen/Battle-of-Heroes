@@ -19,5 +19,5 @@ public abstract class PlayerProgress : ScriptableObject
 
     public abstract void IncreaseExperience(int id, int amount, int xpToLevelUp);
 
-    public abstract void IncreaseLevelsPlayed();
+    public abstract void IncreaseLevelsPlayed(int maxHeroCount);
 }

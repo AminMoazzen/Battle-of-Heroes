@@ -68,26 +68,36 @@ public class BattleManager : MonoBehaviour
 
         if (_battlingHeroIDs.Count == 0)
         {
-            onBattleDefeated.Invoke();
+            StartCoroutine(GeneratingResult(false));
         }
     }
 
     public void WinBattle()
     {
-        StartCoroutine(UpdatingProgress());
+        StartCoroutine(GeneratingResult(true));
     }
 
-    private IEnumerator UpdatingProgress()
+    private IEnumerator GeneratingResult(bool hasWon)
     {
-        for (int i = 0; i < _battlingHeroIDs.Count; i++)
+        if (hasWon)
         {
-            playerProgress.IncreaseExperience(_battlingHeroIDs[i], 1, academy.Data.XpToLevelUp);
+            for (int i = 0; i < _battlingHeroIDs.Count; i++)
+            {
+                playerProgress.IncreaseExperience(_battlingHeroIDs[i], 1, academy.Data.XpToLevelUp);
+            }
         }
 
-        playerProgress.IncreaseLevelsPlayed();
+        playerProgress.IncreaseLevelsPlayed(academy.Data.HeroCollection.Count);
 
         yield return playerProgress.Save();
 
-        onBattleWon.Invoke();
+        if (hasWon)
+        {
+            onBattleWon.Invoke();
+        }
+        else
+        {
+            onBattleDefeated.Invoke();
+        }
     }
 }
