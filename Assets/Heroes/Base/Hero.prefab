@@ -32,8 +32,8 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1374658258}
-  m_Father: {fileID: 1755594484179318819}
-  m_RootOrder: 1
+  m_Father: {fileID: 8542418846108698509}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -504,8 +504,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1755594484179318819}
   - component: {fileID: 336396531}
-  - component: {fileID: 336396532}
-  - component: {fileID: 336396533}
   - component: {fileID: 336396534}
   - component: {fileID: 5777897675796271311}
   m_Layer: 0
@@ -528,7 +526,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1755594485069194713}
-  - {fileID: 290416145}
+  - {fileID: 8542418846108698509}
+  - {fileID: 7378527041176414202}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -546,11 +545,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   competitorsReference: {fileID: 11400000, guid: 3ed23c356bbde124b87624e40fdf135c,
     type: 2}
+  health: {fileID: 7486565570324295578}
+  weapon: {fileID: 1313049234205819317}
   enableAttackOn:
   - {fileID: 11400000, guid: dcd9e0a79acdf3a49807ddda2ceccb03, type: 2}
   disableAttackOn:
   - {fileID: 11400000, guid: 4097ccd0e02cb2c4a83b08bb8d4c0a4e, type: 2}
-  onHeroAttacked:
+  onAttackBegan:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 4097ccd0e02cb2c4a83b08bb8d4c0a4e, type: 2}
@@ -565,58 +566,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHeroDied:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: ffb5155a69c2e7c4a96a8b2eb1a0335e, type: 2}
-        m_TargetAssemblyTypeName: Nouranium.MessageWithData`1[[System.Int32, mscorlib
-        m_MethodName: Send
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &336396532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1755594484179318818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77d1d95d9ec9d4947888c14f0a630d64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 5625554085978776890, guid: e1de9d772cac68f439f971e67e922a22,
-    type: 3}
-  numOfProjectiles: 1
-  delayBetweenShots: 0
---- !u!114 &336396533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1755594484179318818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3925a4e652fafdd44b281f67d5d8c1bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpBar: {fileID: 1374658259}
-  healthBarOffset: {x: 0, y: 2.5, z: 0}
-  camReference: {fileID: 11400000, guid: a5666f61fc794694c8f02b5180ec7f58, type: 2}
-  onHit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: dcd9e0a79acdf3a49807ddda2ceccb03, type: 2}
-        m_TargetAssemblyTypeName: Nouranium.Message, nouranium.messaging
-        m_MethodName: Send
+      - m_Target: {fileID: 8921622579880887432}
+        m_TargetAssemblyTypeName: AnimatorController, Assembly-CSharp
+        m_MethodName: OnAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -629,10 +581,10 @@ MonoBehaviour:
   onDied:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 336396531}
-        m_TargetAssemblyTypeName: Hero, Assembly-CSharp
-        m_MethodName: OnHeroDied
-        m_Mode: 1
+      - m_Target: {fileID: 11400000, guid: ffb5155a69c2e7c4a96a8b2eb1a0335e, type: 2}
+        m_TargetAssemblyTypeName: Nouranium.MessageWithData`1[[System.Int32, mscorlib
+        m_MethodName: Send
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -659,7 +611,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 336396531}
         m_TargetAssemblyTypeName: Hero, Assembly-CSharp
-        m_MethodName: Attack
+        m_MethodName: BeginAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -700,6 +652,7 @@ GameObject:
   - component: {fileID: 1755594485069194717}
   - component: {fileID: 1755594485069194716}
   - component: {fileID: 1755594485069194714}
+  - component: {fileID: 8921622579880887432}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -792,3 +745,181 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8921622579880887432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755594485069194712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8355538f69f70d45b3cff5959964913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1755594485069194714}
+  onShootFrame:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 336396531}
+        m_TargetAssemblyTypeName: Hero, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &3116431709342604700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7378527041176414202}
+  - component: {fileID: 1313049234205819317}
+  m_Layer: 0
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7378527041176414202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3116431709342604700}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1755594484179318819}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1313049234205819317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3116431709342604700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d1d95d9ec9d4947888c14f0a630d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 5625554085978776890, guid: e1de9d772cac68f439f971e67e922a22,
+    type: 3}
+  numOfProjectiles: 3
+  delayBetweenShots: 0.1
+--- !u!1 &7038716031135410308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8542418846108698509}
+  - component: {fileID: 7486565570324295578}
+  m_Layer: 0
+  m_Name: Health
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8542418846108698509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7038716031135410308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 290416145}
+  m_Father: {fileID: 1755594484179318819}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7486565570324295578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7038716031135410308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3925a4e652fafdd44b281f67d5d8c1bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBar: {fileID: 1374658259}
+  healthBarOffset: {x: 0, y: 2.5, z: 0}
+  camReference: {fileID: 11400000, guid: a5666f61fc794694c8f02b5180ec7f58, type: 2}
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: dcd9e0a79acdf3a49807ddda2ceccb03, type: 2}
+        m_TargetAssemblyTypeName: Nouranium.Message, nouranium.messaging
+        m_MethodName: Send
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8921622579880887432}
+        m_TargetAssemblyTypeName: AnimatorController, Assembly-CSharp
+        m_MethodName: OnHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDied:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 336396531}
+        m_TargetAssemblyTypeName: Hero, Assembly-CSharp
+        m_MethodName: OnHeroDied
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8921622579880887432}
+        m_TargetAssemblyTypeName: AnimatorController, Assembly-CSharp
+        m_MethodName: OnDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

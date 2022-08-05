@@ -26,6 +26,11 @@ public class CompetitorsReference : ScriptableObject
         _heroes.Add(hero);
     }
 
+    public void RemoveHero(Hero hero)
+    {
+        _heroes.Remove(hero);
+    }
+
     public void AddMonster(Monster monster)
     {
         _monster = monster;
@@ -33,13 +38,7 @@ public class CompetitorsReference : ScriptableObject
 
     public Hero GetRandomHero()
     {
-        var hero = _heroes[Random.Range(0, _heroes.Count)];
-        if (hero.IsDead)
-        {
-            _heroes.Remove(hero);
-        }
-        hero = _heroes[Random.Range(0, _heroes.Count)];
-        return hero;
+        return _heroes[Random.Range(0, _heroes.Count)];
     }
 
     public Monster GetMonster()

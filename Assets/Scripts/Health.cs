@@ -24,11 +24,11 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        _currentHealth -= amount;
+        _currentHealth = Mathf.Max(0, _currentHealth - amount);
         hpBar.value = _currentHealth;
         onHit.Invoke();
 
-        if (_currentHealth < 0)
+        if (_currentHealth <= 0)
         {
             Die();
         }

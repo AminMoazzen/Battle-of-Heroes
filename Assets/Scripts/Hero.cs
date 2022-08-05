@@ -2,34 +2,38 @@ using Nouranium;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Health))]
-[RequireComponent(typeof(Weapon))]
 public class Hero : MonoBehaviour
 {
+    private enum State
+    {
+        ReadyToAttack,
+        WaitingForTurn,
+        Dead
+    }
+
     [SerializeField] private CompetitorsReference competitorsReference;
+    [SerializeField] private Health health;
+    [SerializeField] private Weapon weapon;
     [SerializeField] private Message[] enableAttackOn;
     [SerializeField] private Message[] disableAttackOn;
-    [SerializeField] private UnityEvent<int> onHeroAttacked;
-    [SerializeField] private UnityEvent<int> onHeroDied;
+    [SerializeField] private UnityEvent<int> onAttackBegan;
+    [SerializeField] private UnityEvent<int> onDied;
 
-    private Health _health;
-    private Weapon _weapon;
-    private bool _canAttack = true;
-    private bool _isDead;
+    public Health Health => health;
+
     private int _id;
-
-    public bool IsDead => _isDead;
+    State _state;
 
     private void Awake()
     {
         foreach (var msg in enableAttackOn)
         {
-            msg.StartListening(() => SetCanAttack(true));
+            msg.StartListening(() => _state = State.ReadyToAttack);
         }
 
         foreach (var msg in disableAttackOn)
         {
-            msg.StartListening(() => SetCanAttack(false));
+            msg.StartListening(() => _state = State.WaitingForTurn);
         }
     }
 
@@ -37,36 +41,31 @@ public class Hero : MonoBehaviour
     {
         _id = id;
 
-        if (_health == null)
-            _health = GetComponent<Health>();
-        _health.Initialize(hp);
+        health.Initialize(hp);
+        weapon.Initialize(ap);
 
-        if (_weapon == null)
-            _weapon = GetComponent<Weapon>();
-        _weapon.Initialize(ap);
+        _state = State.ReadyToAttack;
+        competitorsReference.AddHero(this);
     }
 
-    public void Attack()
+    public void BeginAttack()
     {
-        if (_canAttack && !_isDead)
+        if (_state == State.ReadyToAttack)
         {
-            _canAttack = false;
-            var monster = competitorsReference.GetMonster();
-
-            _weapon.Shoot(monster.GetComponent<Health>());
-
-            onHeroAttacked.Invoke(_id);
+            onAttackBegan.Invoke(_id);
         }
+    }
+
+    public void Shoot()
+    {
+        var monster = competitorsReference.GetMonster();
+        weapon.Shoot(monster.Health);
     }
 
     public void OnHeroDied()
     {
-        _isDead = true;
-        onHeroDied.Invoke(_id);
-    }
-
-    public void SetCanAttack(bool canAttack)
-    {
-        _canAttack = canAttack;
+        _state = State.Dead;
+        competitorsReference.RemoveHero(this);
+        onDied.Invoke(_id);
     }
 }

@@ -6,7 +6,6 @@ public class MonsterSpawner : MonoBehaviour
 {
     [SerializeField] private MonsterDen den;
     [SerializeField] private PlayerProgress playerProgress;
-    [SerializeField] private CompetitorsReference competitorsReference;
 
     private MonsterData _monsterData;
 
@@ -24,7 +23,6 @@ public class MonsterSpawner : MonoBehaviour
             case AsyncOperationStatus.Succeeded:
                 var monster = obj.Result.GetComponent<Monster>();
                 monster.Initialize(_monsterData.Health, _monsterData.AttackPower);
-                competitorsReference.AddMonster(monster);
                 break;
 
             case AsyncOperationStatus.Failed:

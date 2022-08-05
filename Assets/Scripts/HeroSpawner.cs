@@ -6,7 +6,6 @@ public class HeroSpawner : MonoBehaviour
 {
     [SerializeField] private HeroAcademy academy;
     [SerializeField] private PlayerProgress playerProgress;
-    [SerializeField] private CompetitorsReference competitorsReference;
 
     private HeroStaticData _staticData;
     private HeroProgressData _progressData;
@@ -15,7 +14,12 @@ public class HeroSpawner : MonoBehaviour
     {
         _staticData = academy.Data.HeroCollection.Find(x => x.Id == id);
         _progressData = playerProgress.Data.HeroList.Find(x => x.Id == id);
-        Addressables.InstantiateAsync(_staticData.PrefabAddress, transform).Completed += OnSpawned;
+        Addressables.InstantiateAsync(
+            _staticData.PrefabAddress,
+            transform.position,
+            transform.rotation,
+            transform
+            ).Completed += OnSpawned;
     }
 
     private void OnSpawned(AsyncOperationHandle<GameObject> obj)
@@ -28,7 +32,6 @@ public class HeroSpawner : MonoBehaviour
                     _staticData.Id,
                     _staticData.GetScaledHealth(_progressData.Level, academy.Data.HpMultiplier),
                     _staticData.GetScaledAttackPower(_progressData.Level, academy.Data.ApMulitplier));
-                competitorsReference.AddHero(hero);
                 break;
 
             case AsyncOperationStatus.Failed:

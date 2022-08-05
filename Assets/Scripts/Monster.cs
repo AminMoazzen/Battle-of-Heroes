@@ -1,19 +1,16 @@
 using Nouranium;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Health))]
-[RequireComponent(typeof(Weapon))]
 public class Monster : MonoBehaviour
 {
     [SerializeField] private CompetitorsReference competitorsReference;
-    [SerializeField] private float attackPreparationTime;
+    [SerializeField] private Health health;
+    [SerializeField] private Weapon weapon;
     [SerializeField] private Message[] attackOn;
-    [SerializeField] private UnityEvent onMonsterAttacked;
+    [SerializeField] private UnityEvent onAttackBegan;
 
-    private Health _health;
-    private Weapon _weapon;
+    public Health Health => health;
 
     private void Awake()
     {
@@ -25,28 +22,21 @@ public class Monster : MonoBehaviour
 
     public void Initialize(int hp, int ap)
     {
-        if (_health == null)
-            _health = GetComponent<Health>();
-        _health.Initialize(hp);
+        health.Initialize(hp);
+        weapon.Initialize(ap);
 
-        if (_weapon == null)
-            _weapon = GetComponent<Weapon>();
-        _weapon.Initialize(ap);
+        competitorsReference.AddMonster(this);
     }
 
     public void Attack()
     {
-        StartCoroutine(PrepareThenShoot());
+        onAttackBegan.Invoke();
     }
 
-    private IEnumerator PrepareThenShoot()
+    public void Shoot()
     {
-        yield return new WaitForSeconds(attackPreparationTime);
-
         var hero = competitorsReference.GetRandomHero();
 
-        _weapon.Shoot(hero.GetComponent<Health>());
-
-        onMonsterAttacked.Invoke();
+        weapon.Shoot(hero.Health);
     }
 }

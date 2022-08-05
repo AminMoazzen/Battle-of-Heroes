@@ -24,14 +24,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8010042487150743193}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!114 &8010042487150743192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,5 +46,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   den: {fileID: 11400000, guid: 098764c43a5b9c7448d8b82b95d29031, type: 2}
   playerProgress: {fileID: 11400000, guid: 7dea310daf15d7d4a9830f8fd3021c7f, type: 2}
-  competitorsReference: {fileID: 11400000, guid: 3ed23c356bbde124b87624e40fdf135c,
-    type: 2}
