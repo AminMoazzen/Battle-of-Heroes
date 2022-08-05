@@ -50,9 +50,10 @@ public class BattleManager : MonoBehaviour
         competitorsReference.Initialize();
 
         Vector3 offset = Vector3.zero;
+        var halfCount = _battlingHeroIDs.Count / 2;
         for (int i = 0; i < _battlingHeroIDs.Count; i++)
         {
-            offset.Set(heroesDistance * Random.value, 0, heroesDistance * (i - _battlingHeroIDs.Count / 2));
+            offset.Set(heroesDistance * (i - halfCount), 0, heroesDistance * (i - halfCount));
             var pos = _transform.position + heroStartPos + offset;
             var heroSpanwer = Instantiate(heroSpawner, pos, heroSpawner.transform.rotation, null).GetComponent<HeroSpawner>();
             heroSpanwer.Spawn(_battlingHeroIDs[i]);

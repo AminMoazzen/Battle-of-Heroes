@@ -15,6 +15,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1313049234205819317, guid: 99468764cd112924d8a358401fa15bd2,
+        type: 3}
+      propertyPath: numOfProjectiles
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1313049234205819317, guid: 99468764cd112924d8a358401fa15bd2,
+        type: 3}
+      propertyPath: delayBetweenShots
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1755594484179318818, guid: 99468764cd112924d8a358401fa15bd2,
         type: 3}
       propertyPath: m_Name
@@ -75,6 +85,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1755594485069194713, guid: 99468764cd112924d8a358401fa15bd2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755594485069194713, guid: 99468764cd112924d8a358401fa15bd2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755594485069194713, guid: 99468764cd112924d8a358401fa15bd2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755594485069194713, guid: 99468764cd112924d8a358401fa15bd2,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2499712782463612528, guid: 99468764cd112924d8a358401fa15bd2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -100,5 +130,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 8542418846108698509, guid: 99468764cd112924d8a358401fa15bd2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99468764cd112924d8a358401fa15bd2, type: 3}

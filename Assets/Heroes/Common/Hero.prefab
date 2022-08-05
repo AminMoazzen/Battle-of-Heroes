@@ -899,7 +899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBar: {fileID: 1374658259}
-  healthBarOffset: {x: 0, y: 2.5, z: 0}
+  healthBarOffset: {x: 0, y: 1.5, z: 0}
   camReference: {fileID: 11400000, guid: a5666f61fc794694c8f02b5180ec7f58, type: 2}
   onHit:
     m_PersistentCalls:

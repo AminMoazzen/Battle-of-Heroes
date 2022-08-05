@@ -1608,6 +1608,7 @@ MonoBehaviour:
     type: 3}
   heroStartPos: {x: -5, y: 0, z: 0}
   monsterPos: {x: 5, y: 0, z: 0}
+  heroesDistance: 2
   removeHeroOn:
   - {fileID: 11400000, guid: ffb5155a69c2e7c4a96a8b2eb1a0335e, type: 2}
   winBattleOn:
