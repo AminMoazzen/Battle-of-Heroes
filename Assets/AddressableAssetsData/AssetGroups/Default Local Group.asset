@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 4502de1e7b9a1a447bdd43d5fca3242c
   m_SerializeEntries:
-  - m_GUID: 0842bad5a3c4f6143a7a8604d8426c60
-    m_Address: Assets/Monsters/Base/Monster.prefab
+  - m_GUID: aec752ef6f32ce44bbd0e59b28a852af
+    m_Address: Assets/Monsters/Nefario/Nefario Variant.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: ba24f93e1eec53a4cb08c89bf1822e8f
@@ -63,6 +63,14 @@ MonoBehaviour:
     m_SerializedLabels: []
   - m_GUID: e0623acc94399c143b4148bd15940687
     m_Address: Assets/Heroes/Yoshimiro/Yoshimiro Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3f35b1d1153758744931e1e860b732ba
+    m_Address: Assets/Monsters/Scorpio/Scorpio Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2967d26e0da3a4145926c417b46cc23c
+    m_Address: Assets/Monsters/Canavar/Canavar Variant.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0
