@@ -14,6 +14,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private MonsterSpawner monsterSpawner;
     [SerializeField] private Vector3 heroStartPos;
     [SerializeField] private Vector3 monsterPos;
+    [SerializeField][Min(1)] private float heroesDistance = 3;
 
     [SerializeField] private MessageInt[] removeHeroOn;
     [SerializeField] private Message[] winBattleOn;
@@ -51,8 +52,7 @@ public class BattleManager : MonoBehaviour
         Vector3 offset = Vector3.zero;
         for (int i = 0; i < _battlingHeroIDs.Count; i++)
         {
-            var randomInCircle = Random.insideUnitCircle;
-            offset.Set(2 * Random.value, 0, 2 * (i - _battlingHeroIDs.Count / 2));
+            offset.Set(heroesDistance * Random.value, 0, heroesDistance * (i - _battlingHeroIDs.Count / 2));
             var pos = _transform.position + heroStartPos + offset;
             var heroSpanwer = Instantiate(heroSpawner, pos, heroSpawner.transform.rotation, null).GetComponent<HeroSpawner>();
             heroSpanwer.Spawn(_battlingHeroIDs[i]);

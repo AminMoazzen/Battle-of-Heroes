@@ -17,16 +17,52 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 4502de1e7b9a1a447bdd43d5fca3242c
   m_SerializeEntries:
-  - m_GUID: 99468764cd112924d8a358401fa15bd2
-    m_Address: Assets/Heroes/Base/Hero.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: fd6d2eba0b182db45a0e83d93448783e
-    m_Address: Assets/Sprites/loading.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 0842bad5a3c4f6143a7a8604d8426c60
     m_Address: Assets/Monsters/Base/Monster.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ba24f93e1eec53a4cb08c89bf1822e8f
+    m_Address: Assets/Heroes/Common/Thumbnails/Hero Thumbnails.spriteatlas
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9518e371959f07841bc7ec706af79d94
+    m_Address: Assets/Heroes/Altan/Altan Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 08511374e7be70b4cbc74fe17f41331d
+    m_Address: Assets/Heroes/Anna/Anna Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d7761dcef01eb2e4bb852740347eb8f2
+    m_Address: Assets/Heroes/Gambler/Gambler Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bf300b8d1dacfda4a9d64186e3d46c7f
+    m_Address: Assets/Heroes/Graphite/Graphite Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6fb305dae62078a4a85165ca9820b9f6
+    m_Address: Assets/Heroes/Jake/Jake Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 81c9dc0eb9e36164cb2f39ca784ec195
+    m_Address: Assets/Heroes/Johanna/Johanna Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 433ba063bb0bfdd4294800b8d9682a2a
+    m_Address: Assets/Heroes/Plague/Plague Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9bb5d500319e03f4c87ae4ecb5e449dc
+    m_Address: Assets/Heroes/Punisher/Punisher Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9e08a2cef2319cc4ca3a10ad22cd1e5c
+    m_Address: Assets/Heroes/Scarlett/Scarlett Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e0623acc94399c143b4148bd15940687
+    m_Address: Assets/Heroes/Yoshimiro/Yoshimiro Variant.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

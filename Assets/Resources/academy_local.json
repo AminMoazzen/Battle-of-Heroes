@@ -8,80 +8,80 @@
       "name": "Jake",
       "baseHealth": 200,
       "baseAttackPower": 10,
-      "thumbnailAddress": "Assets/Sprites/loading.png",
-      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+      "thumbnailAddress": "Assets/Heroes/Common/Thumbnails/Hero Thumbnails.spriteatlas[jake]",
+      "prefabAddress": "Assets/Heroes/Jake/Jake Variant.prefab"
     },
     {
       "id": 1,
       "name": "Yoshimiro",
       "baseHealth": 100,
       "baseAttackPower": 50,
-      "thumbnailAddress": "Assets/Sprites/loading.png",
-      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+      "thumbnailAddress": "Assets/Heroes/Common/Thumbnails/Hero Thumbnails.spriteatlas[yoshimiro]",
+      "prefabAddress": "Assets/Heroes/Yoshimiro/Yoshimiro Variant.prefab"
     },
     {
       "id": 2,
       "name": "Altan",
       "baseHealth": 150,
       "baseAttackPower": 25,
-      "thumbnailAddress": "Assets/Sprites/loading.png",
-      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+      "thumbnailAddress": "Assets/Heroes/Common/Thumbnails/Hero Thumbnails.spriteatlas[altan]",
+      "prefabAddress": "Assets/Heroes/Altan/Altan Variant.prefab"
     },
     {
       "id": 3,
       "name": "Scarlett",
       "baseHealth": 70,
       "baseAttackPower": 70,
-      "thumbnailAddress": "Assets/Sprites/loading.png",
-      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+      "thumbnailAddress": "Assets/Heroes/Common/Thumbnails/Hero Thumbnails.spriteatlas[scarlett]",
+      "prefabAddress": "Assets/Heroes/Scarlett/Scarlett Variant.prefab"
     },
 	{
       "id": 4,
       "name": "Gambler",
       "baseHealth": 150,
       "baseAttackPower": 15,
-      "thumbnailAddress": "Assets/Sprites/loading.png",
-      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+      "thumbnailAddress": "Assets/Heroes/Common/Thumbnails/Hero Thumbnails.spriteatlas[gambler]",
+      "prefabAddress": "Assets/Heroes/Gambler/Gambler Variant.prefab"
     },
 	{
       "id": 5,
       "name": "Punisher",
       "baseHealth": 100,
       "baseAttackPower": 25,
-      "thumbnailAddress": "Assets/Sprites/loading.png",
-      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+      "thumbnailAddress": "Assets/Heroes/Common/Thumbnails/Hero Thumbnails.spriteatlas[punisher]",
+      "prefabAddress": "Assets/Heroes/Punisher/Punisher Variant.prefab"
     },
 	{
       "id": 6,
       "name": "Plague",
       "baseHealth": 110,
       "baseAttackPower": 20,
-      "thumbnailAddress": "Assets/Sprites/loading.png",
-      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+      "thumbnailAddress": "Assets/Heroes/Common/Thumbnails/Hero Thumbnails.spriteatlas[plague]",
+      "prefabAddress": "Assets/Heroes/Plague/Plague Variant.prefab"
     },
 	{
       "id": 7,
       "name": "Anna",
       "baseHealth": 100,
       "baseAttackPower": 30,
-      "thumbnailAddress": "Assets/Sprites/loading.png",
-      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+      "thumbnailAddress": "Assets/Heroes/Common/Thumbnails/Hero Thumbnails.spriteatlas[anna]",
+      "prefabAddress": "Assets/Heroes/Anna/Anna Variant.prefab"
     },
 	{
       "id": 8,
       "name": "Graphite",
       "baseHealth": 140,
       "baseAttackPower": 20,
-      "thumbnailAddress": "Assets/Sprites/loading.png",
-      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+      "thumbnailAddress": "Assets/Heroes/Common/Thumbnails/Hero Thumbnails.spriteatlas[graphite]",
+      "prefabAddress": "Assets/Heroes/Graphite/Graphite Variant.prefab"
     },
 	{
       "id": 9,
       "name": "Johanna",
       "baseHealth": 200,
       "baseAttackPower": 50,
-      "thumbnailAddress": "Assets/Sprites/loading.png",
-      "prefabAddress": "Assets/Heroes/Base/Hero.prefab"
+      "thumbnailAddress": "Assets/Heroes/Common/Thumbnails/Hero Thumbnails.spriteatlas[johanna]",
+      "prefabAddress": "Assets/Heroes/Johanna/Johanna Variant.prefab"
     }
   ]
 }

@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hero Thumbnails
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 1d991c6a88a329841b4475693b46d5d2, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 3f32d4521cf60c641ab73ce035edbeb8, type: 3}
+  - {fileID: 21300000, guid: cf0293e3b77a6244cbbd393bb8774aa0, type: 3}
+  - {fileID: 21300000, guid: 3cdeb494acdbed149ac3af7a02af74d0, type: 3}
+  - {fileID: 21300000, guid: f8b170661eec3464185aa284787f8254, type: 3}
+  - {fileID: 21300000, guid: 592c7a7646493a74a992600b10ccfb28, type: 3}
+  - {fileID: 21300000, guid: 359b55a76e5531e4b880e10914a7fb6b, type: 3}
+  - {fileID: 21300000, guid: 7cd383592b2c7ba4bad90d80a45b7f00, type: 3}
+  - {fileID: 21300000, guid: 335d8b59a8080f14b9a928046c99054e, type: 3}
+  - {fileID: 21300000, guid: aa0ce4b959d797c40a132a7341cc90f7, type: 3}
+  - {fileID: 21300000, guid: f862324b93bbe8641a4a1fb6cf6487de, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - scarlett
+  - jake
+  - yoshimiro
+  - plague
+  - gambler
+  - anna
+  - altan
+  - punisher
+  - graphite
+  - johanna
+  m_RenderDataMap: {}
+  m_Tag: Hero Thumbnails
+  m_IsVariant: 0

@@ -5,13 +5,12 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 public class MonsterSpawner : MonoBehaviour
 {
     [SerializeField] private MonsterDen den;
-    [SerializeField] private PlayerProgress playerProgress;
 
     private MonsterData _monsterData;
 
     public void Spawn()
     {
-        int id = playerProgress.Data.LevelsFinished % den.Data.MonsterCollection.Count;
+        int id = Random.Range(0, den.Data.MonsterCollection.Count);
         _monsterData = den.Data.MonsterCollection.Find(x => x.Id == id);
         Addressables.InstantiateAsync(_monsterData.PrefabAddress, transform).Completed += OnSpawned;
     }

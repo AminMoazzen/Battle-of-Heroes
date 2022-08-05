@@ -29,6 +29,8 @@ public class HeroCard : MonoBehaviour
         int experience = 0;
         int attackPower = staticData.BaseAttackPower;
 
+        Addressables.LoadAssetAsync<Sprite>(staticData.ThumbnailAddress).Completed += OnThumbnailLoaded;
+
         _isLocked = progressData == null;
         locked.SetActive(_isLocked);
         if (!_isLocked)
@@ -36,7 +38,6 @@ public class HeroCard : MonoBehaviour
             level = progressData.Level;
             experience = progressData.Experience;
             attackPower = staticData.GetScaledAttackPower(progressData.Level, apMultiplier);
-            Addressables.LoadAssetAsync<Sprite>(staticData.ThumbnailAddress).Completed += OnThumbnailLoaded;
         }
 
         heroLevel.text = level.ToString();

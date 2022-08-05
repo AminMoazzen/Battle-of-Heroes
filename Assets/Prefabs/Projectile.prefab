@@ -46,12 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d766ded3f9f4e9b40b08ee5802db421e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   floatingText: {fileID: 6322830918280083699}
-  floatingTextFadeTime: 1
   floatingTextOffset: {x: 0, y: 1, z: -0.5}
+  floatingTextFadeTime: 1
   floatingTextFlyHeight: 1
-  camReference: {fileID: 11400000, guid: a5666f61fc794694c8f02b5180ec7f58, type: 2}
 --- !u!1 &5625554086217447191
 GameObject:
   m_ObjectHideFlags: 0
