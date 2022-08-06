@@ -13,12 +13,15 @@ public class DataLoader : MonoBehaviour
 
     private IEnumerator Start()
     {
+        DontDestroyOnLoad(gameObject);
+        onDataLoadingProgressed.Invoke(0);
         yield return academy.Fetch();
         onDataLoadingProgressed.Invoke(0.33f);
         yield return den.Fetch();
         onDataLoadingProgressed.Invoke(0.66f);
         yield return playerProgress.Fetch();
         onDataLoadingProgressed.Invoke(1);
+        yield return null;
 
         onDataLoaded.Invoke();
 

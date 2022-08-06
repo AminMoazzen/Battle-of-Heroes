@@ -1,28 +1,35 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Animator))]
 public class AnimatorController : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
-    [SerializeField] private UnityEvent onShootFrame;
+    public UnityEvent onShootFrame;
 
     private readonly int AttackID = Animator.StringToHash("Attack");
     private readonly int HitID = Animator.StringToHash("Hit");
     private readonly int DieID = Animator.StringToHash("Die");
 
+    private Animator _animator;
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
+
     public void OnAttack()
     {
-        animator.SetTrigger(AttackID);
+        _animator.SetTrigger(AttackID);
     }
 
     public void OnHit()
     {
-        animator.SetTrigger(HitID);
+        _animator.SetTrigger(HitID);
     }
 
     public void OnDie()
     {
-        animator.SetTrigger(DieID);
+        _animator.SetTrigger(DieID);
     }
 
     public void OnShootFrame()

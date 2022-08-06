@@ -23,6 +23,7 @@ public class Hero : MonoBehaviour
 
     private int _id;
     State _state;
+    private AnimatorController _animController;
 
     private void Awake()
     {
@@ -37,12 +38,14 @@ public class Hero : MonoBehaviour
         }
     }
 
-    public void Initialize(int id, int hp, int ap)
+    public void Initialize(int id, int hp, int ap, AnimatorController animController)
     {
         _id = id;
 
         health.Initialize(hp);
         weapon.Initialize(ap);
+        _animController = animController;
+        _animController.onShootFrame.AddListener(Shoot);
 
         _state = State.ReadyToAttack;
         competitorsReference.AddHero(this);
@@ -52,6 +55,7 @@ public class Hero : MonoBehaviour
     {
         if (_state == State.ReadyToAttack)
         {
+            _animController.OnAttack();
             onAttackBegan.Invoke(_id);
         }
     }
@@ -60,6 +64,16 @@ public class Hero : MonoBehaviour
     {
         var monster = competitorsReference.GetMonster();
         weapon.Shoot(monster.Health);
+    }
+
+    public void OnHit()
+    {
+        _animController.OnHit();
+    }
+
+    public void OnDie()
+    {
+        _animController.OnDie();
     }
 
     public void OnHeroDied()

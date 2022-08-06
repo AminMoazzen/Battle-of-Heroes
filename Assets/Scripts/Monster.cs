@@ -11,6 +11,7 @@ public class Monster : MonoBehaviour
     [SerializeField] private UnityEvent onAttackBegan;
 
     public Health Health => health;
+    private AnimatorController _animController;
 
     private void Awake()
     {
@@ -20,16 +21,19 @@ public class Monster : MonoBehaviour
         }
     }
 
-    public void Initialize(int hp, int ap)
+    public void Initialize(int hp, int ap, AnimatorController animController)
     {
         health.Initialize(hp);
         weapon.Initialize(ap);
+        _animController = animController;
+        _animController.onShootFrame.AddListener(Shoot);
 
         competitorsReference.AddMonster(this);
     }
 
     public void Attack()
     {
+        _animController.OnAttack();
         onAttackBegan.Invoke();
     }
 
@@ -38,5 +42,15 @@ public class Monster : MonoBehaviour
         var hero = competitorsReference.GetRandomHero();
 
         weapon.Shoot(hero.Health);
+    }
+
+    public void OnHit()
+    {
+        _animController.OnHit();
+    }
+
+    public void OnDie()
+    {
+        _animController.OnDie();
     }
 }

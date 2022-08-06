@@ -6,6 +6,7 @@ public class HeroSpawner : MonoBehaviour
 {
     [SerializeField] private HeroAcademy academy;
     [SerializeField] private PlayerProgress playerProgress;
+    [SerializeField] private Hero hero;
 
     private HeroStaticData _staticData;
     private HeroProgressData _progressData;
@@ -16,9 +17,9 @@ public class HeroSpawner : MonoBehaviour
         _progressData = playerProgress.Data.HeroList.Find(x => x.Id == id);
         Addressables.InstantiateAsync(
             _staticData.PrefabAddress,
-            transform.position,
-            transform.rotation,
-            transform
+            hero.transform.position,
+            hero.transform.rotation,
+            hero.transform
             ).Completed += OnSpawned;
     }
 
@@ -27,11 +28,12 @@ public class HeroSpawner : MonoBehaviour
         switch (obj.Status)
         {
             case AsyncOperationStatus.Succeeded:
-                var hero = obj.Result.GetComponent<Hero>();
+                var animController = obj.Result.GetComponent<AnimatorController>();
                 hero.Initialize(
                     _staticData.Id,
                     _staticData.GetScaledHealth(_progressData.Level, academy.Data.HpMultiplier),
-                    _staticData.GetScaledAttackPower(_progressData.Level, academy.Data.ApMulitplier));
+                    _staticData.GetScaledAttackPower(_progressData.Level, academy.Data.ApMulitplier),
+                    animController);
                 break;
 
             case AsyncOperationStatus.Failed:
